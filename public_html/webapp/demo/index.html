@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html charset=utf-8">
+<script type="text/javascript" language="JavaScript" src="js/soapclient.js"></script>
+<script type="text/javascript" language="JavaScript" src="js/nerws.js"></script>
+<title>NER-WS demo</title>
+</head>
+<body>
+<h1>NER-WS demo</h1>
+<p>Enter text to process and click "Process" button. You will see result text with all recognized proper names highlighted <font style="background-color: yellow">yellow</font>. Move mouse over a proper name to see its category.</p>
+<form name="request_form" action="" method="GET">
+<table>
+<tr>
+<td><b>Text to process:</b></td>
+<td><b>Result text:</b></td>
+</tr>
+<tr>
+<td width="50%"><textarea rows="30" cols="50" name="request_text" value="">
+Premier Donald Tusk odwiedził w środę elektrownię w Bełchatowie, gdzie uczestniczył w uroczystości przekazania do eksploatacji nowego bloku energetycznego.
+
+Premier w towarzystwie prezesa Polskiej Grupy Energetycznej Tomasza Zadroga i prezesa Jacka Kaczorowskiego (koncern PGE Górnictwo i Energetyka Konwencjonalna) zwiedził nowy blok i spotkał się z pracownikami elektrowni, którzy brali udział w całej inwestycji.  Premier do Elektrowni Bełchatów przyjechał słynnym już "Autobusem Tuska".
+
+Na początku zwiedził bloku energetyczny, m.in. nastawnie na której kontrolowane są parametry pracy bloku i maszynownię.
+
+Później przez kilka minut rozmawiał z pracownikami, którzy wybudowali gigantyczny blok i pogratulował im. Na koniec, wraz z kilkoma osobami, wjechał windą na dach bloku energetycznego na wysokość blisko 160 metrów, skąd podziwiał elektrownię. 
+
+- Ten blok, to jest perła w koronie polskiej energetyki. Najnowocześniejszy w Polsce, a i w całej Europie, możemy znaleźć zaledwie kilka porównywalnych instalacji. Jak się dowiedziałem, ten blok mógłby zaopatrzyć w prąd całą aglomerację warszawską - powiedział Donald Tusk podczas wizyty na nowym bloku.
+
+- Widząc genialny efekt ciężkiej pracy wszystkich zaangażowanych w to osób, możemy powiedzieć, że jesteśmy w miejscu, które stanowi jeden z fundamentów bezpieczeństwa Polski. Bełchatów to początek drogi z nowoczesną polską energetyką. Toczymy nieustanną kampanię w Europie o to, aby w Polsce prąd był produkowany z węgla brunatnego, dziś naszego najcenniejszego surowca. Chcemy Europę przekonać, że węgiel ma przyszłość. Nie można bezpieczeństwa energetycznego oprzeć Polski i Europy tylko na rosyjskim gazie.  
+
+Premier w swoim wystąpieniu odniósł się także do samego miasta Bełchatowa.
+
+ - Bełchatów to potężna kopalnia i elektrownia, ale to musi być też dobre miejsce do życia. Komfort życia i pracy są równoważne, jeśli jest pewność, że jest praca. Biorąc pod uwagę znaczenie strategiczne dla Polski, Bełchatów musi być takim miejscem, w którym życie i działanie musi być coraz prostsze i lepsze. Dlatego bezwzględnie trzeba wrócić do tych planów, które zostały z powodów finansowych przekładane. Mam na myśli obwodnicę Bełchatowa. Nie składał żadnych deklaracji, ale będę przekonywał urzędników odpowiedzialnych za lokalizację, że są takie miejsce ze względu na bezpieczeństwo narodowe i znaczenie dla całego Państwa, które będą wymagały być może odważniejszych decyzji, z większą wyobraźnią. Mam nadzieję, że za kilka miesięcy będzie w tej kwestii dla was dobra decyzja - mówił premier Donald Tusk.
+
+Na godz. 11 zaplanowano poświęcenie bloku, a później sadzenie symbolicznych drzewek. 
+</textarea></td>
+
+<td width="50%"><div id="result_text" style="height:500px;width:400px;overflow-y:scroll;">&nbsp;</div></td>
+
+</tr><tr>
+<td colspan="2">
+
+<table><tr><td>
+<input type="button" value="Process" onClick="processRequest()"></td>
+<td><div id="status_line">&nbsp;</div></td></tr></table>
+
+</td>
+</tr></table>
+</form>
+</body>
+</html>

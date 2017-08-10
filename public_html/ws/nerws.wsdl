@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		  xmlns:lns="http://188.124.184.105/nerws/ws/"
+		  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		  name="nerws"
+		  targetNamespace="http://188.124.184.105/nerws/ws/">
+
+<wsdl:types>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	      targetNamespace="http://188.124.184.105/nerws/ws/">
+    <xsd:complexType name="LinerResponse">
+      <xsd:sequence>
+	   <xsd:element name="status" type="xsd:int"/>
+	   <xsd:element name="msg" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="format">
+      <xsd:restriction base="xsd:string">
+	   <xsd:enumeration value="iob"/>
+	   <xsd:enumeration value="ccl"/>
+	   <xsd:enumeration value="plain"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="fault" type="xsd:string"/>
+  </xsd:schema>
+</wsdl:types>
+
+<wsdl:message name="OperationRequest">
+  <wsdl:part name="input_format" type="lns:format"/>
+  <wsdl:part name="output_format" type="lns:format"/>
+  <wsdl:part name="model" type="xsd:string"/>
+  <wsdl:part name="text" type="xsd:string"/>
+</wsdl:message>
+
+<wsdl:message name="TokenRequest">
+  <wsdl:part name="token" type="xsd:string"/>
+</wsdl:message>
+
+<wsdl:message name="OperationResponse">
+  <wsdl:part name="response" type="lns:LinerResponse"/>
+</wsdl:message>
+
+<wsdl:message name="Operation_faultMsg">
+  <wsdl:part name="fault" element="lns:fault"/>
+</wsdl:message>
+
+<wsdl:portType name="nerws">
+  <wsdl:operation name="Annotate">
+    <wsdl:input message="lns:OperationRequest"/>
+    <wsdl:output message="lns:OperationResponse"/>
+    <wsdl:fault name="fault" message="lns:Operation_faultMsg"/>
+  </wsdl:operation>
+  <wsdl:operation name="GetResult">
+    <wsdl:input message="lns:TokenRequest"/>
+    <wsdl:output message="lns:OperationResponse"/>
+    <wsdl:fault name="fault" message="lns:Operation_faultMsg"/>
+  </wsdl:operation>
+</wsdl:portType>
+
+<wsdl:binding name="nerwsSOAP" type="lns:nerws">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsdl:operation name="Annotate">
+    <soap:operation soapAction="http://188.124.184.105/nerws/Annotate"/>
+    <wsdl:input>
+      <soap:body use="literal" namespace="http://188.124.184.105/nerws/ws/"/>
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use="literal" namespace="http://188.124.184.105/nerws/ws/"/>
+    </wsdl:output>
+    <wsdl:fault name="fault">
+      <soap:fault use="literal" name="fault"/>
+    </wsdl:fault>
+  </wsdl:operation>
+  <wsdl:operation name="GetResult">
+    <soap:operation soapAction="http://188.124.184.105/nerws/GetResult"/>
+    <wsdl:input>
+      <soap:body use="literal" namespace="http://188.124.184.105/nerws/ws/"/>
+    </wsdl:input>
+    <wsdl:output>
+      <soap:body use="literal" namespace="http://188.124.184.105/nerws/ws/"/>
+    </wsdl:output>
+    <wsdl:fault name="fault">
+      <soap:fault use="literal" name="fault"/>
+    </wsdl:fault>
+  </wsdl:operation>
+</wsdl:binding>
+
+<wsdl:service name="nerws">
+  <wsdl:port binding="lns:nerwsSOAP" name="nerwsSOAP">
+    <soap:address location="http://188.124.184.105/nerws/ws/" required="true"/>
+  </wsdl:port>
+</wsdl:service>
+
+</wsdl:definitions>

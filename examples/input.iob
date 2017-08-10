@@ -1,0 +1,27 @@
+-DOCSTART CONFIG FEATURES orth base ctag
+-DOCSTART FILE /nlp/corpora/pwr/ik-wiki1//annotated/0100515.txt
+Rabós Rabós ign O
+Rabós Rabós ign O
+– – interp O
+hiszpańska hiszpański adj:sg:nom:f:pos O
+gmina gmina subst:sg:nom:f O
+w w prep:loc:nwok O
+Katalonii Katalonia subst:sg:loc:f O
+, , interp O
+w w prep:loc:nwok O
+prowincji prowincja subst:sg:loc:f O
+Girona Girona ign O
+, , interp O
+w w prep:acc:nwok O
+comarce comarce ign O
+Alt alt subst:sg:nom:m1 O
+Empordà Empordà ign O
+. . interp O
+Powierzchnia powierzchnia subst:sg:nom:f O
+gminy gmina subst:sg:gen:f O
+wynosi wynosić fin:sg:ter:imperf O
+45 45 ign O
+, , interp O
+11 11 ign O
+km² km² ign O
+. . interp O
