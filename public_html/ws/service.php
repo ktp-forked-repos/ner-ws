@@ -1,4 +1,4 @@
-<?
+<?php
 
 require("types.php");
 require_once("config.php");
@@ -75,7 +75,7 @@ class LinerService {
     $token = md5(microtime().substr($text, 0, 1)).md5(microtime().substr($text, 1, 2));
     $query = sprintf("CALL submit_request('%s', %d, '%s', '%s', '%s', '%s', '%s');",
 		     $token, strlen($text), $input_format, $output_format, $model,
-		     mysql_real_escape_string($text), $ip);
+		     mysqli_real_escape_string($text), $ip);
     $database->query($query);
 
     // get daemon address

@@ -1,4 +1,4 @@
-<?
+<?php
 class Database {
   private $connection = null;
 
@@ -6,15 +6,13 @@ class Database {
     mysql_close($this->connection);
   }
   function connect($host, $user, $pass, $db) {
-    $this->connection = mysql_connect($host, $user, $pass);
-    mysql_select_db($db, $this->connection);
-    mysql_set_charset("utf8");
+    $this->connection = new mysqli($host, $user, $pass, $db);
   }
   function fetch_array($query_result) {
-    return mysql_fetch_array($query_result);
+    return mysqli_fetch_array($query_result);
   }
   function query($query) {
-    return mysql_query($query, $this->connection);
+    return $this->connection->query($query);
   }
 }
 ?>

@@ -1,5 +1,5 @@
-<?
-$path = $cfg_dir."/logs/log.txt";
+<?php
+$path = $cfg_dir."logs/log.txt";
 $logfile = fopen($path, "a+") or die($path);
 
 function write_log($msg) {
